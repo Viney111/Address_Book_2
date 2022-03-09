@@ -20,21 +20,21 @@ namespace Address_Book_2
         public Contacts AddContacts()
         {
             Contacts contacts = new Contacts();
-            Console.WriteLine("Enter First Name: ");
+            Console.Write("Enter First Name: ");
             contacts.firstName = Console.ReadLine();
-            Console.WriteLine("Enter Last Name: ");
+            Console.Write("Enter Last Name: ");
             contacts.lastName = Console.ReadLine();
-            Console.WriteLine("Enter the address: ");
+            Console.Write("Enter the address: ");
             contacts.address = Console.ReadLine();
-            Console.WriteLine("Enter city Name: ");
+            Console.Write("Enter city Name: ");
             contacts.city = Console.ReadLine();
-            Console.WriteLine("Enter state Name: ");
+            Console.Write("Enter state Name: ");
             contacts.state = Console.ReadLine();
-            Console.WriteLine("Enter the zip Code: ");
+            Console.Write("Enter the zip Code: ");
             contacts.zipCode = Convert.ToInt32(Console.ReadLine());
-            Console.WriteLine("Enter the phone Number: ");
+            Console.Write("Enter the phone Number: ");
             contacts.phoneNo = Convert.ToInt32(Console.ReadLine());
-            Console.WriteLine("Enter the email Id: ");
+            Console.Write("Enter the email Id: ");
             contacts.email = Console.ReadLine();
             return contacts;
         }
