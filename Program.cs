@@ -10,8 +10,9 @@ namespace Address_Book_2
         static void Main(string[] args)
         {
             Console.WriteLine("Welcome to Address Book Program");
-            Book.ContactsDetail();
-            Book.DisplayContactsDetails();
+            AddressBook addressBook = new AddressBook();
+            addressBook.AddContactsDetailinAddressBook();
+            addressBook.DisplayContactsInAddressBookDictionary();
         }
     }
 }

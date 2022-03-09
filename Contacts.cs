@@ -17,7 +17,7 @@ namespace Address_Book_2
         public int phoneNo { get; set; }
         public string email { get; set; }
 
-        public Contacts AddContacts()
+        public static Contacts AddContacts()
         {
             Contacts contacts = new Contacts();
             Console.Write("Enter First Name: ");

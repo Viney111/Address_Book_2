@@ -8,38 +8,18 @@ namespace Address_Book_2
 {
     internal class Book
     {
-        public static List<Contacts> book = new List<Contacts>();
-        public static void ContactsDetail()
+        List<Contacts> listOfContacts = new List<Contacts>();
+        public List<Contacts> AddContactDetailsInList(Contacts C1)
         {
-            string chooseOptionToAddContacts = string.Empty;
-            string chooseOptionToEditExistingContacts = string.Empty;
-            string chooseOptionToDeleteExistingContacts = string.Empty;
-            do
-            {
-                Contacts C1 = new Contacts();
-                book.Add(C1.AddContacts());
-                Console.WriteLine("Enter the choice to add more persons Contacts in current Address Book: \n \"Yes\" or \"No\"");
-                chooseOptionToAddContacts = Console.ReadLine().ToUpper();
-            } while (chooseOptionToAddContacts.Contains("Y"));
-            Console.WriteLine("Enter the choice to edit persons Contacts in current Address Book: \n \"Yes\" or \"No\"");
-            chooseOptionToEditExistingContacts = Console.ReadLine().ToUpper();
-            if (chooseOptionToEditExistingContacts.Contains("Y"))
-            {
-                EditContacts();
-            }
-            Console.WriteLine("Enter the choice to delete persons Contacts in current Address Book: \n \"Yes\" or \"No\"");
-            chooseOptionToDeleteExistingContacts = Console.ReadLine().ToUpper();
-            if (chooseOptionToDeleteExistingContacts.Contains("Y"))
-            {
-                DeleteContacts();
-            }
-        }
-        public static void EditContacts()
+            listOfContacts.Add(C1);
+            return listOfContacts;
+        } 
+        public void EditContacts()
         {
             Console.WriteLine("Enter the name of the person whose contact details you want to edit: ");
             string nameOfEditingContactPerson = Console.ReadLine().ToUpper();
             Contacts editedContact = null;
-            foreach(Contacts contact in book)
+            foreach(Contacts contact in listOfContacts)
             {
                 if (contact.firstName.ToUpper() == nameOfEditingContactPerson)
                 {
@@ -95,21 +75,21 @@ namespace Address_Book_2
                 }
             }
         }
-        public static void DisplayContactsDetails()
+        public void DisplayContactsDetails()
         {
             Console.WriteLine("Details of the Contacts are: ");
-            foreach(Contacts contact in book)
+            foreach(Contacts contact in listOfContacts)
             {
                 Console.WriteLine($"First Name: {contact.firstName} LastName: {contact.lastName}\nAddress is: {contact.address}\nCity Name is: {contact.city}\nState Name is: {contact.state}\nZipCode is: {contact.zipCode}\nPhone Number is: {contact.phoneNo}\nEmail is: {contact.email} ");
                 Console.WriteLine("--------------------------------------------------");
             }
         }
-        public static void DeleteContacts()
+        public void DeleteContacts()
         {
             Console.WriteLine("Enter the name of the person whose contact details you want to delete: ");
             string nameOfDeletingContactPerson = Console.ReadLine().ToUpper();
             Contacts deletedContact = null;
-            foreach (Contacts contact in book)
+            foreach (Contacts contact in listOfContacts)
             {
                 if (contact.firstName.ToUpper() == nameOfDeletingContactPerson)
                 {
@@ -118,7 +98,7 @@ namespace Address_Book_2
             }
             if (deletedContact != null)
             {
-                book.Remove(deletedContact);
+                listOfContacts.Remove(deletedContact);
             }
         }
     }
