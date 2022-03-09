@@ -11,7 +11,7 @@ namespace Address_Book_2
         {
             Console.WriteLine("Welcome to Address Book Program");
             Book.ContactsDetail();
-            Book.DisplayContactsDetails(Book.book);
+            Book.DisplayContactsDetails();
         }
     }
 }
