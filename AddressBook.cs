@@ -72,7 +72,7 @@ namespace Address_Book_2
         #endregion
 
         #region For Viewing Person in a city or State across Multiple AddressBook
-        public void SeachingPersonByCityOrStateName()
+        public void SeachingPersonByCity()
         {
             Console.WriteLine("Enter the City name: ");
             string cityName = Console.ReadLine();
