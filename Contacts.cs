@@ -8,6 +8,7 @@ namespace Address_Book_2
 {
     internal class Contacts
     {
+        #region Contacts Fields
         public string firstName { get; set; }
         public string lastName { get; set; }
         public string address { get; set; }
@@ -16,7 +17,9 @@ namespace Address_Book_2
         public int zipCode { get; set; }
         public int phoneNo { get; set; }
         public string email { get; set; }
+        #endregion
 
+        #region Adding Contacts from Console & returning Object
         public static Contacts AddContacts()
         {
             Contacts contacts = new Contacts();
@@ -38,6 +41,6 @@ namespace Address_Book_2
             contacts.email = Console.ReadLine();
             return contacts;
         }
-
+        #endregion
     }
 }

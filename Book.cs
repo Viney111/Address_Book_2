@@ -8,12 +8,19 @@ namespace Address_Book_2
 {
     internal class Book
     {
+        #region List for adding Contacts
         List<Contacts> listOfContacts = new List<Contacts>();
+        #endregion
+
+        #region Adding Contact Details in List & returning the list
         public List<Contacts> AddContactDetailsInList(Contacts C1)
         {
-            listOfContacts.Add(C1);
+            CheckForDuplicates(listOfContacts, C1);
             return listOfContacts;
-        } 
+        }
+        #endregion
+
+        #region Editing the Existing Contacts
         public void EditContacts()
         {
             Console.WriteLine("Enter the name of the person whose contact details you want to edit: ");
@@ -75,15 +82,47 @@ namespace Address_Book_2
                 }
             }
         }
+        #endregion
+
+        #region Preventing Addition of Duplicates by verifying names
+        public void CheckForDuplicates(List<Contacts> listOfContacts,Contacts C1)
+        {
+            bool isEmpty = !listOfContacts.Any();
+            if (isEmpty)
+            {
+                listOfContacts.Add(C1);
+            }
+            else
+            {
+                foreach (Contacts c in listOfContacts)
+                {
+                    if (!(c.firstName == C1.firstName))
+                    {
+                        listOfContacts.Add(C1);
+                        break;
+                    }
+                    else
+                    {
+                        Console.WriteLine($"{C1.firstName} already exists");
+                    }
+                }
+            }
+        }
+        #endregion
+
+        #region Displaying Contact Details after Adding into List
         public void DisplayContactsDetails()
         {
             Console.WriteLine("Details of the Contacts are: ");
             foreach(Contacts contact in listOfContacts)
             {
-                Console.WriteLine($"First Name: {contact.firstName} LastName: {contact.lastName}\nAddress is: {contact.address}\nCity Name is: {contact.city}\nState Name is: {contact.state}\nZipCode is: {contact.zipCode}\nPhone Number is: {contact.phoneNo}\nEmail is: {contact.email} ");
+                Console.WriteLine($"Full Name: {contact.firstName} {contact.lastName}\nAddress is: {contact.address}\nCity Name is: {contact.city}\nState Name is: {contact.state}\nZipCode is: {contact.zipCode}\nPhone Number is: {contact.phoneNo}\nEmail is: {contact.email} ");
                 Console.WriteLine("--------------------------------------------------");
             }
         }
+        #endregion
+
+        #region For removing the contacts from list
         public void DeleteContacts()
         {
             Console.WriteLine("Enter the name of the person whose contact details you want to delete: ");
@@ -101,5 +140,6 @@ namespace Address_Book_2
                 listOfContacts.Remove(deletedContact);
             }
         }
+        #endregion
     }
 }
