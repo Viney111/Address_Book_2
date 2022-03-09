@@ -13,7 +13,7 @@ namespace Address_Book_2
             AddressBook addressBook = new AddressBook();
             addressBook.AddContactsDetailinAddressBook();
             addressBook.DisplayContactsInAddressBookDictionary();
-            addressBook.SeachingPersonByCityOrState();
+            addressBook.SeachingPersonByCityOrStateName();
         }
     }
 }
