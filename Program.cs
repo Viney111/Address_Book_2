@@ -9,7 +9,7 @@ namespace Address_Book_2
     {
         static void Main(string[] args)
         {
-
+            Console.WriteLine("Welcome to Address Book Program");
         }
     }
 }
