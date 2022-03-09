@@ -70,5 +70,25 @@ namespace Address_Book_2
             }
         }
         #endregion
+
+        #region For Searching Person in a city or State across Multiple AddressBook
+        public void SeachingPersonByCityName()
+        {
+            Console.WriteLine("Enter the City name: ");
+            string cityName = Console.ReadLine();
+            Console.WriteLine("Enter the State name: ");
+            string stateName = Console.ReadLine();
+            foreach (var kvp in multipleAddressBook)
+            {
+                foreach(var v in kvp.Value.listOfContacts)
+                {
+                    if(v.city == cityName || v.state == stateName)
+                    {
+                        Console.WriteLine($"{v.firstName} {v.lastName} lives in this {cityName} of this {stateName}");
+                    }
+                }
+            }
+        }
+        #endregion
     }
 }

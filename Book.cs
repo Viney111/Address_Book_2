@@ -9,7 +9,7 @@ namespace Address_Book_2
     internal class Book
     {
         #region List for adding Contacts
-        List<Contacts> listOfContacts = new List<Contacts>();
+        public List<Contacts> listOfContacts = new List<Contacts>();
         #endregion
 
         #region Adding Contact Details in List & returning the list
@@ -85,7 +85,7 @@ namespace Address_Book_2
         #endregion
 
         #region Preventing Addition of Duplicates by verifying names
-        public void CheckForDuplicates(List<Contacts> listOfContacts,Contacts C1)
+        private void CheckForDuplicates(List<Contacts> listOfContacts,Contacts C1)
         {
             bool isEmpty = !listOfContacts.Any();
             if (isEmpty)
