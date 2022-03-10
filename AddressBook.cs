@@ -71,39 +71,45 @@ namespace Address_Book_2
         }
         #endregion
 
-        #region For Viewing Person in a city or State across Multiple AddressBook
-        public void SeachingPersonByCityName()
+        #region For Counting Number of Persons in a particular city across Multiple AddressBook
+        public void SeachingPersonByCityNameAndCountingAlso()
         {
             Console.WriteLine("Enter the City name: ");
             string cityName = Console.ReadLine();
+            int countByCity = 0;
             foreach (var kvp in multipleAddressBook)
             {
                 foreach (var v in kvp.Value.listOfContacts)
                 {
                     if (v.city == cityName)
                     {
-                        Console.WriteLine($"{v.firstName} {v.lastName} lives in this {cityName}.");
+                        Console.WriteLine($"{v.firstName} {v.lastName} lives in this {cityName} city.");
+                        countByCity++;
                     }
                 }
             }
+            Console.WriteLine($"There are {countByCity} persons residing in this {cityName}");
         }
         #endregion
 
-        #region For Searching Person in a particular State across Multiple AddressBook
-        public void SeachingPersonByStateName()
+        #region For Counting Number of Person in a particular State across Multiple AddressBook
+        public void SeachingPersonByStateNameAndCountingAlso()
         {
             Console.WriteLine("Enter the State name: ");
             string stateName = Console.ReadLine();
+            int countByState = 0;
             foreach (var kvp in multipleAddressBook)
             {
                 foreach (var v in kvp.Value.listOfContacts)
                 {
-                    if (v.city == stateName)
+                    if (v.state == stateName)
                     {
-                        Console.WriteLine($"{v.firstName} {v.lastName} lives in this {stateName}.");
+                        Console.WriteLine($"{v.firstName} {v.lastName} lives in this {stateName} state.");
+                        countByState++;
                     }
                 }
             }
+            Console.WriteLine($"There are {countByState} persons residing in this {stateName}");
         }
         #endregion
     }
