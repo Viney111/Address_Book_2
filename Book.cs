@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Address_Book_2
 {
-    internal class Book
+    public class Book
     {
         #region List for adding Contacts
         public List<Contacts> listOfContacts = new List<Contacts>();

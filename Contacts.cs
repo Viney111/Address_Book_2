@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Address_Book_2
 {
-    internal class Contacts
+    public class Contacts
     {
         #region Contacts Fields
         public string firstName { get; set; }

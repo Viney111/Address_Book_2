@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Address_Book_2
 {
-    internal class AddressBook
+    public class AddressBook
     {
         #region Dictionary for Multiple Address Book
         IDictionary<string, Book> multipleAddressBook = new Dictionary<string, Book>();
