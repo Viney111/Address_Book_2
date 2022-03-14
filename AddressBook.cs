@@ -9,13 +9,14 @@ namespace Address_Book_2
     public class AddressBook
     {
         #region Dictionary for Multiple Address Book
-        IDictionary<string, Book> multipleAddressBook = new Dictionary<string, Book>();
+        public IDictionary<string, Book> multipleAddressBook = new Dictionary<string, Book>();
         #endregion
 
         #region Add Multiple AddressBook in Dictionary
         public void AddAddressBook(Book book, string addressBookName)
         {
             multipleAddressBook.Add(addressBookName, book);
+            FileIOOperations.WritingAllPersonContactsinFile(multipleAddressBook);
         }
         #endregion
 

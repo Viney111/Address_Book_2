@@ -1,1 +1,10 @@
-﻿
+Address Book Name : Viny 
+firstName : Viny
+lastName : 
+address : 
+city : 
+state : 
+zipCode : 5
+phoneNo : 5
+email : 5
+

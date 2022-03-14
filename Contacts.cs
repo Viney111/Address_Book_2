@@ -5,7 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 
 namespace Address_Book_2
-{
+{   
     public class Contacts
     {
         #region Contacts Fields
@@ -15,7 +15,7 @@ namespace Address_Book_2
         public string city { get; set; }
         public string state { get; set; }
         public int zipCode { get; set; }
-        public int phoneNo { get; set; }
+        public double phoneNo { get; set; }
         public string email { get; set; }
         #endregion
 
@@ -36,11 +36,15 @@ namespace Address_Book_2
             Console.Write("Enter the zip Code: ");
             contacts.zipCode = Convert.ToInt32(Console.ReadLine());
             Console.Write("Enter the phone Number: ");
-            contacts.phoneNo = Convert.ToInt32(Console.ReadLine());
+            contacts.phoneNo = Convert.ToDouble(Console.ReadLine());
             Console.Write("Enter the email Id: ");
             contacts.email = Console.ReadLine();
             return contacts;
         }
         #endregion
+        public override string ToString()
+        {
+            return $"firstName : {this.firstName}\nlastName : {this.lastName}\naddress : {this.address}\ncity : {this.city}\nstate : {this.state}\nzipCode : {this.zipCode}\nphoneNo : {this.phoneNo}\nemail : {this.email}";
+        }
     }
 }
