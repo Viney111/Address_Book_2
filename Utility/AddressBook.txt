@@ -4,7 +4,33 @@ lastName :
 address : 
 city : 
 state : 
+zipCode : 1
+phoneNo : 1
+email : 1
+firstName : Suresh
+lastName : 
+address : 
+city : 
+state : 
 zipCode : 5
 phoneNo : 5
 email : 5
+
+Address Book Name : Sidhu 
+firstName : Sidhu
+lastName : 
+address : 
+city : 
+state : 
+zipCode : 6
+phoneNo : 6
+email : 6
+firstName : Jaibhagwan
+lastName : 
+address : 
+city : 
+state : 
+zipCode : 8
+phoneNo : 8
+email : 8
 

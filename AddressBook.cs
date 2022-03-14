@@ -113,5 +113,44 @@ namespace Address_Book_2
             Console.WriteLine($"There are {countByState} persons residing in this {stateName}");
         }
         #endregion
+
+        #region Sorting by Name, State, City & Zip
+        public void SortContactPerson()
+        {
+            Console.WriteLine("Enter 1-to Sort contact based on First Name");
+            Console.WriteLine("Enter 2-to Sort Contact Based on State");
+            Console.WriteLine("Enter 3-to Sort Contact based on City");
+            Console.WriteLine("Enter 4-to Sort Contact based on zip");
+            int sortChoice = Convert.ToInt32(Console.ReadLine());
+            foreach(var kvp in multipleAddressBook)
+            {
+                List<Contacts> sortingListBySelectedField = kvp.Value.listOfContacts;
+                CompareContactFields compareContactFields = new CompareContactFields();
+                switch (sortChoice)
+                {
+                    case 1:
+                        compareContactFields.CompareByContactDetail = CompareContactFields.SortingType.FIRST_NAME;
+                        sortingListBySelectedField.Sort(compareContactFields);
+                        break;
+                    case 2:
+                        compareContactFields.CompareByContactDetail = CompareContactFields.SortingType.STATE;
+                        sortingListBySelectedField.Sort(compareContactFields);
+                        break;
+                    case 3:
+                        compareContactFields.CompareByContactDetail = CompareContactFields.SortingType.CITY;
+                        sortingListBySelectedField.Sort(compareContactFields);
+                        break;
+                    case 4:
+                        compareContactFields.CompareByContactDetail = CompareContactFields.SortingType.ZIP;
+                        sortingListBySelectedField.Sort(compareContactFields);
+                        break;
+                }
+                foreach(Contacts contact in sortingListBySelectedField)
+                {
+                    Console.WriteLine(contact.ToString());
+                }
+            }
+        }
+        #endregion
     }
 }
