@@ -12,7 +12,9 @@ namespace Address_Book_2
             Console.WriteLine("Welcome to Address Book Program");
             AddressBook addressBook = new AddressBook();
             addressBook.AddContactsDetailinAddressBook();
-            addressBook.SortContactPerson();
+            FileIOOperations.ReadingAllPersonContactsinFile();
+            FileIOOperations.ReadingAllPersonContactsfromCSVFile();
+            //addressBook.SortContactPerson();
             //addressBook.DisplayContactsInAddressBookDictionary();
             //addressBook.SeachingPersonByCityNameAndCountingAlso();
             //addressBook.SeachingPersonByStateNameAndCountingAlso();
