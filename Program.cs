@@ -14,6 +14,7 @@ namespace Address_Book_2
             addressBook.AddContactsDetailinAddressBook();
             FileIOOperations.ReadingAllPersonContactsinFile();
             FileIOOperations.ReadingAllPersonContactsfromCSVFile();
+            //FileIOOperations.ReadingAllPersonContactsFromJsonFile();
             //addressBook.SortContactPerson();
             //addressBook.DisplayContactsInAddressBookDictionary();
             //addressBook.SeachingPersonByCityNameAndCountingAlso();
