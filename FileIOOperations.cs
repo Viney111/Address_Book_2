@@ -18,12 +18,11 @@ namespace Address_Book_2
             File.WriteAllText(path, string.Empty);
             foreach(KeyValuePair<string,Book> person in addressBook)
             {
-                File.AppendAllText(path, $"Address Book Name : {person.Key} {Environment.NewLine}");
+                File.AppendAllText(path, $"Address Book Name : {person.Key}\n");
                 foreach(Contacts contacts in person.Value.listOfContacts)
                 {
-                    File.AppendAllText(path, contacts.ToString() + Environment.NewLine);
+                    File.AppendAllText(path, contacts.ToString());
                 }
-                File.AppendAllText(path,Environment.NewLine);
             }
             Console.WriteLine("Content has written to AdrressBook.txt file");
         }
