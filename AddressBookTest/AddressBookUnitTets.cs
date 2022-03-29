@@ -16,7 +16,7 @@ namespace AddressBookTest
         }
 
         [TestMethod]
-        public void GivenContactsUpdatedObject_InUpdateContactsMethod_Return()
+        public void GivenContactsUpdatedObject_InUpdateContactsMethod_ReturnObjectOfUpdatedContact()
         {
             Contacts contacts = new Contacts { firstName = "VINEY", lastName = "KHANEJA", city = "Ludhiana", state = "Punjab", zipCode = 110008 };
             var actual = addressBookDataBase.UpdateContactDetailsofAPerson(contacts);
