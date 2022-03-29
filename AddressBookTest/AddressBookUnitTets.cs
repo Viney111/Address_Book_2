@@ -14,5 +14,13 @@ namespace AddressBookTest
             addressBookDataBase.GetContactDetailsByDataAdapter(masterQuery);
             Assert.IsTrue(true);
         }
+
+        [TestMethod]
+        public void GivenContactsUpdatedObject_InUpdateContactsMethod_Return()
+        {
+            Contacts contacts = new Contacts { firstName = "VINEY", lastName = "KHANEJA", city = "Ludhiana", state = "Punjab", zipCode = 110008 };
+            var actual = addressBookDataBase.UpdateContactDetailsofAPerson(contacts);
+            Assert.AreEqual("Punjab", actual.state);
+        }
     }
 }
