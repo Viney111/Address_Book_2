@@ -6,13 +6,13 @@ namespace AddressBookTest
     [TestClass]
     public class AddressBookUnitTets
     {
-        Program program = new Program();
+        public static string masterQuery = @"SELECT * FROM PersonContactsTable";
+        AddressBookDataBase addressBookDataBase = new AddressBookDataBase();
         [TestMethod]
-        public void TestMethod1()
+        public void GivenDBConnectionString_InAddressBookDataBase_ReturnListOfContactsinDB()
         {
-            int expected = 9;
-            program.Addition(5, 4);
-            Assert.AreEqual(expected, 9);
+            addressBookDataBase.GetContactDetailsByDataAdapter(masterQuery);
+            Assert.IsTrue(true);
         }
     }
 }

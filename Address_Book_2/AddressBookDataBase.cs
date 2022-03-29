@@ -7,7 +7,11 @@ namespace Address_Book_2
 {
     public class AddressBookDataBase
     {
+        #region DB Connection String
         public static string connectionString = @"Server=LAPTOP-IUMGL5A5;Database=Address_Book_Service;User ID=LAPTOP-IUMGL5A5\Kashish Manchanda;Trusted_Connection=True";
+        #endregion
+
+        #region Get All the Contacts From Database to Console
         public void GetContactDetailsByDataAdapter(string query)
         {
             try
@@ -30,5 +34,6 @@ namespace Address_Book_2
                 Console.WriteLine(ex.Message);
             }
         }
+        #endregion
     }
 }

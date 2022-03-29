@@ -5,7 +5,7 @@ using System.Threading.Tasks;
 
 namespace Address_Book_2
 {
-    public class Program
+    internal class Program
     {
         static void Main(string[] args)
         {
@@ -45,11 +45,6 @@ namespace Address_Book_2
                     dataBase.GetContactDetailsByDataAdapter(masterQuery);
                     break;
             }
-        }
-        public int Addition (int a, int b)
-        {
-            int addition = a + b;
-            return addition;
         }
     }
 }
