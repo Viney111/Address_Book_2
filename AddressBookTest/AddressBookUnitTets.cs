@@ -9,6 +9,8 @@ namespace AddressBookTest
     {
         public static string masterQuery = @"SELECT * FROM PersonContactsTable";
         public static string dateQuery = @"SELECT * FROM PersonContactsTable WHERE Date_Added BETWEEN CAST('2020-05-10' AS DATE) AND GETDATE()";
+        public static string stateCountQuery = @"SELECT * FROM PersonContactsTable WHERE StateName = 'Haryana'";
+        public static string cityCountQuery = @"SELECT * FROM PersonContactsTable WHERE City = 'Rohtak'";
         AddressBookDataBase addressBookDataBase = new AddressBookDataBase();
         [TestMethod]
         public void GivenDBConnectionString_InAddressBookDataBase_ReturnListOfContactsinDB()
@@ -24,7 +26,6 @@ namespace AddressBookTest
                 i++;
             }
         }
-
         [TestMethod]
         public void GivenContactsUpdatedObject_InUpdateContactsMethod_ReturnListOfUpdatedContact()
         {
@@ -50,6 +51,20 @@ namespace AddressBookTest
                 Assert.AreEqual(expectedContactsPersonNames[i], contact.firstName);
                 i++;
             }
+        }
+        [TestMethod]
+        public void GivenQueryForStateName_InGetContactsMethod_ReturnListOfContactsOfStates()
+        {
+            int expectedCount = 4;
+            List<Contacts> listOfContactsForParticularState = addressBookDataBase.GetContactsListByDataAdapterFromDB(stateCountQuery);
+            Assert.AreEqual(expectedCount, listOfContactsForParticularState.Count);
+        }
+        [TestMethod]
+        public void GivenQueryForCityName_InGetContactsMethod_ReturnListOfContactsOfCities()
+        {
+            int expectedCount = 2;
+            List<Contacts> listOfContactsForParticularCity = addressBookDataBase.GetContactsListByDataAdapterFromDB(cityCountQuery);
+            Assert.AreEqual(expectedCount, listOfContactsForParticularCity.Count);
         }
     }
 }
