@@ -14,8 +14,9 @@ namespace Address_Book_2
         SqlConnection sqlConnection = new SqlConnection(connectionString);
 
         #region Get All the Contacts From Database to Console
-        public void GetContactDetailsByDataAdapter(string query)
+        public List<Contacts> GetContactsListByDataAdapterFromDB(string query)
         {
+            List<Contacts> retrievedContactsFromDB = new List<Contacts>();
             try
             {
                 DataSet ds = new DataSet();
@@ -27,19 +28,30 @@ namespace Address_Book_2
                     adapter.Fill(ds);
                     foreach (DataRow dataRow in ds.Tables[0].Rows)
                     {
-                        Console.WriteLine(dataRow["FirstName"] + "," + dataRow["LastName"] + "," + dataRow["AddressDetails"] + "," + dataRow["City"] + "," + dataRow["StateName"] + "," + dataRow["Zip"] + "," + dataRow["PhoneNo"] + "," + dataRow["Email"]);
+                        Contacts contacts = new Contacts();
+                        contacts.firstName = (string)dataRow["FirstName"];
+                        contacts.lastName = (string)dataRow["LastName"];
+                        contacts.address = (string)dataRow["AddressDetails"];
+                        contacts.city = (string)dataRow["City"];
+                        contacts.state = (string)dataRow["StateName"];
+                        contacts.zipCode = (int)dataRow["Zip"];
+                        contacts.phoneNo = (Int64)dataRow["PhoneNo"];
+                        contacts.email = (string)dataRow["email"];
+                        retrievedContactsFromDB.Add(contacts);
                     }
                 }
+                return retrievedContactsFromDB;
             }
             catch (Exception ex)
             {
                 Console.WriteLine(ex.Message);
+                return default;
             }
         }
         #endregion
 
         #region Update Contact Details for a person & retrieve data in Object Form from Database
-        public Contacts UpdateContactDetailsofAPerson(Contacts contacts)
+        public void UpdateContactDetailsofAPerson(Contacts contacts)
         {
             try
             {
@@ -57,19 +69,15 @@ namespace Address_Book_2
                 if (result != 0)
                 {
                     Console.WriteLine("Records updated successfully");
-                    Contacts updatedContact = RetrieveDataFromDBInObjectForm(connectionString,contacts);
-                    return updatedContact;
                 }
                 else
                 {
                     Console.WriteLine("Record not updated successfully");
-                    return default;
                 }
             }
             catch(Exception ex)
             {
                 Console.WriteLine(ex.Message);
-                return default;
             }
         }
         #endregion

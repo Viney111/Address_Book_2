@@ -42,7 +42,11 @@ namespace Address_Book_2
                     FileIOOperations.ReadingAllPersonContactsFromJsonFile();
                     break;
                 case 9:
-                    dataBase.GetContactDetailsByDataAdapter(masterQuery);
+                    List<Contacts> retrivedList = dataBase.GetContactsListByDataAdapterFromDB(masterQuery);
+                    foreach(Contacts contact in retrivedList)
+                    {
+                        Console.WriteLine(contact.ToString());
+                    }
                     break;
             }
         }
